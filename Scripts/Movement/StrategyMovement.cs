@@ -5,11 +5,11 @@ namespace _Project16_17.Scripts
 {
     public class StrategyMovement : MonoBehaviour
     {
-        private IMoveble _moveble;
+        private IBehavior _behavior;
 
-        public void Initialise(IMoveble moveble)
+        public void Initialise(IBehavior behavior)
         {
-            _moveble = moveble;
+            _behavior = behavior;
         }
     }
 }

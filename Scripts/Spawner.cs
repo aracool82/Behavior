@@ -13,14 +13,16 @@ namespace _Project16_17.Scripts
 
         private void Awake()
         {
-            _points = GetPoints();
-            SpawnEnemy();
+            //_points = GetPoints();
+            //SpawnEnemy();
         }
 
         private void SpawnEnemy()
         {
             Enemy enemy = Instantiate(_prefabEnemy, transform.position, Quaternion.identity);
-            enemy.Initialize(_characterTransform,_prefabEnemy.transform,3);
+            float distance = 3;
+            Transform source = _prefabEnemy.transform;
+            enemy.Initialize(_characterTransform,source);
         }
 
         private List<Vector3> GetPoints()

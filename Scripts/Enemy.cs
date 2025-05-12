@@ -7,22 +7,26 @@ namespace _Project16_17.Scripts
         [SerializeField] private State _state;
         [SerializeField] private Rest _Rest;
         [SerializeField] private Reaction _reaction;
-        [SerializeField] private Mover _mover;
 
         private AggressionDetector _aggressionDetector;
-        private IMoveble _moveble;
+        private IBehavior _behavior;
+        private float _speed;
 
-        public void Initialize(Transform targetTransform,Transform source ,float distance)
+        public void Initialize(Transform targetTransform,Transform source )
         {
-            _aggressionDetector = new AggressionDetector(targetTransform,source,distance);
+            float distance = 3;
+            //_aggressionDetector = new AggressionDetector(targetTransform,source,distance);
             _state = State.AtRest;
+            _behavior = new StandInPlace();
+            // _behavior = new RandomMovement(transform, _speed);
         }
 
         private void Update()
         {
-            _state = _aggressionDetector.IsDecected ? State.Reaction : State.AtRest;
-
-            
+            // _state = _aggressionDetector.IsDecected ? State.Reaction : State.AtRest;
+            //
+            // if(_state == State.AtRest)
+            //     _behavior.DoAction();
         }
     }
 }
